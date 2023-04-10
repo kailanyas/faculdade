@@ -95,8 +95,7 @@ void cadastraAluno(int n, Aluno** tab){
 }
 
 
-int main(){
-
+int main(int argc, char** argv) {
 /* Na funcao main crie um vetor de ponteiros para a estrutura+aluno (chamado tab com 3 posiÃ§Ãµes).*/
     Aluno* tab[tam];
 // chamando funcao inicializa
@@ -108,8 +107,15 @@ int main(){
 //chamando funcao retiraAluno
 	retiraAluno(tam, tab);
 //chamando cadastraAluno
-	cadastraAluno(tam, tab);
+        for(int i = 0; i < tam; i++){
+            if (tab[i] == NULL){
+                cadastraAluno(tam, tab);
+            }
+            else{
+                break;
+            }
+        }
 //chamando funcao imprimetudo
 	imprime_tudo(tam, tab);
-	
+    return (EXIT_SUCCESS);
 }
